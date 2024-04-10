@@ -1,32 +1,48 @@
-// import React, { useState } from 'react';
+import React, { Component } from 'react';
 
-// export const Feedback = () => {
-//   const [state, setState] = useState({
-//     good: 0,
-//     neutral: 0,
-//     bad: 0,
-//   });
+class Feedback extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      stats: {
+        good: 0,
+        neutral: 0,
+        bad: 0,
+      },
+    };
+  }
 
-//   return (
-//     <>
-//       <h1>Please leave feeback</h1>
-//       <button className="" type="button" onClick={() => handleFeedback('good')}>
-//         Good
-//       </button>
-//       <button
-//         className=""
-//         type="button"
-//         onClick={() => handleFeedback('neutral')}
-//       >
-//         Neutral
-//       </button>
-//       <button className="" type="button" onClick={() => handleFeedback('bad')}>
-//         Bad
-//       </button>
-//       <h2>Statistics</h2>
-//       <p>Good: {state.good}</p>
-//       <p>Neutral: {state.neutral}</p>
-//       <p>Bad: {state.bad}</p>
-//     </>
-//   );
-// };
+  handleFeedback = e => {
+    const statType = e.target.textContent.toLowerCase();
+    this.setState(prevState => ({
+      stats: {
+        ...prevState.stats,
+        [statType]: prevState.stats[statType] + 1,
+      },
+    }));
+  };
+
+  render() {
+    const { stats } = this.state;
+    return (
+      <>
+        <h1>Please leave feedback</h1>
+        <button className="" type="button" onClick={this.handleFeedback}>
+          Good
+        </button>
+        <button className="" type="button" onClick={this.handleFeedback}>
+          Neutral
+        </button>
+        <button className="" type="button" onClick={this.handleFeedback}>
+          Bad
+        </button>
+        <h2>Statistics</h2>
+        <p>Good: {stats.good}</p>
+        <p>Neutral: {stats.neutral}</p>
+        <p>Bad: {stats.bad}</p>
+      </>
+    );
+  }
+}
+
+export default Feedback;

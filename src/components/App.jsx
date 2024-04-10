@@ -1,9 +1,14 @@
-// import { Feedback } from './Feedback/Feedback';
+import React, { Component } from 'react';
+import Feedback from './Feedback/Feedback';
 
-// export const App = () => {
-//   return (
-//     <>
-//       <Feedback />
-//     </>
-//   );
-// };
+class App extends Component {
+  render() {
+    return (
+      <>
+        <Feedback />
+      </>
+    );
+  }
+}
+
+export default App;
