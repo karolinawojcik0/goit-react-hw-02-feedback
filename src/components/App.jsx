@@ -3,6 +3,7 @@ import { Section } from './Section/Section';
 import { FeedbackOptions } from './FeedbackOptions/FeedbackOptions';
 import { Statistics } from './Statistics/Statistics';
 import { Notification } from './Notification/Notification';
+import { Container } from './App.css';
 
 export const App = () => {
   const [stats, setStats] = useState({ good: 0, neutral: 0, bad: 0 });
@@ -29,7 +30,7 @@ export const App = () => {
   const positiveFeedbackPercentage = countPositiveFeedbackPercentage();
 
   return (
-    <>
+    <Container>
       <Section title="Please leave feedback">
         <FeedbackOptions
           options={Object.keys(stats)}
@@ -49,6 +50,6 @@ export const App = () => {
           <Notification message="There is no feedback" />
         )}
       </Section>
-    </>
+    </Container>
   );
 };

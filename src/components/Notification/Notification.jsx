@@ -5,7 +5,7 @@ export const Notification = ({ message }) => {
   return (
     <>
       <NotificationMessage>
-        <p>{message}</p>;
+        <p>{message}</p>
       </NotificationMessage>
     </>
   );
